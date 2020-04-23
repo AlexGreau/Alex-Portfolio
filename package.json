@@ -1,0 +1,12 @@
+{
+    "name": "backbone",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"cd ui && npm start \" \"nodemon api/server/server.js\""
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.3"
+  }
+}
