@@ -1,5 +1,5 @@
 {
-    "name": "backbone",
+  "name": "backbone",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,5 +8,21 @@
   "devDependencies": {
     "concurrently": "^5.1.0",
     "nodemon": "^2.0.3"
+  },
+  "description": "Think Simple.",
+  "main": "index.js",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexGreau/PearProgramming.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexGreau/PearProgramming/issues"
+  },
+  "homepage": "https://github.com/AlexGreau/PearProgramming#readme",
+  "engines": {
+    "node": "14.0.0"
   }
 }
