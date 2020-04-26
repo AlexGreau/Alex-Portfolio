@@ -1,14 +1,17 @@
-const http = require('http');
+const path = require('path');
+const express = require('express');
 
 const hostname = '127.0.0.1';
-const port = 3001;
+const app = express();
+const publicPath = path.join(__dirname, '../../ui/', 'public');
+const port = process.env.PORT || 3001;
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
-});
+app.use(express.static(publicPath));
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.get('*', (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
+}); 
+
+app.listen(port, () => {
+  console.log('Server is up! visit on http://' + hostname + ':' + port + '/');
 });

@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"cd ui && npm start \" \"nodemon api/server/server.js\""
+    "start:server": "nodemon api/server/server.js",
+    "start:ui": "cd ui && npm start",
+    "startall": "concurrently \"cd ui && npm start \" \"nodemon api/server/server.js\""
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
@@ -11,7 +13,9 @@
   },
   "description": "Think Simple.",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.17.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AlexGreau/PearProgramming.git"
