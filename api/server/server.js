@@ -13,7 +13,11 @@ app.get('/path', (req, res) => {
 });
 
 app.get('*',(req, res) => { // site content
-  res.sendFile(path.join(buildPath, 'index.html'));
+  res.sendFile(path.join(buildPath, 'index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  });
 });
 
 app.listen(port, () => {
