@@ -3,13 +3,13 @@ const express = require('express');
 
 const hostname = '127.0.0.1';
 const app = express();
-const publicPath = path.join(__dirname, '../../ui/', 'public');
+const buildPath = path.join(__dirname, '../../ui/' , 'build');
 const port = process.env.PORT || 3001;
 
-app.use(express.static(publicPath));
+app.use(express.static(buildPath));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index.html'));
+  res.sendFile(path.join(buildPath, 'index.html'));
 }); 
 
 app.listen(port, () => {
