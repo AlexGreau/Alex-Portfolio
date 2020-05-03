@@ -6,7 +6,8 @@
     "start:server": "nodemon api/server/server.js",
     "start:ui": "cd ui && npm start",
     "startall": "concurrently \"cd ui && npm start \" \"nodemon api/server/server.js\"",
-    "start": "node api/server/server.js"
+    "build": "cd ui && npm run build",
+    "start": "cd ui && npm run build && node ../api/server/server.js"
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
