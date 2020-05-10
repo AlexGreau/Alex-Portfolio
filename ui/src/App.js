@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react';
+import App_flashcards from './apps/app_flashcards/app_flashcards';
+import Home from './apps/app_home/home';
+
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isFlashcardApp: false,
+      isHome: true,
+    }
+    this.switchToApp_flashcard = this.switchToApp_flashcard.bind(this);
+  }
+
+  switchToApp_flashcard() {
+    alert('Hello!');
+    this.setState({
+      isFlashcardApp: true,
+      isHome: false
+    })
+  }
+
+  getBody() {
+    if (this.state.isFlashcardApp) {
+      return <App_flashcards />
+    } else {
+      return <Home/>
+    }
+  }
+
+  render() {
+    const body = this.getBody();
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>hellu from app</h1>
+          <button onClick={this.switchToApp_flashcard}>switch to Flashcards App</button>
+        </header>
+        <div id='body'>
+          {body}
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
