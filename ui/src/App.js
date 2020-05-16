@@ -16,7 +16,6 @@ class App extends Component {
   }
 
   switchToApp_flashcard() {
-    alert('Hello!');
     this.setState({
       isFlashcardApp: true,
       isHome: false
