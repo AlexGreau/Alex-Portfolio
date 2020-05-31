@@ -2,7 +2,7 @@
 import React from 'react';
 import './app_flashcards.css';
 
-class App_flashcards extends React.Component {
+class FlashcardsApp extends React.Component {
 
   constructor(props) {
     super(props);
@@ -14,11 +14,11 @@ class App_flashcards extends React.Component {
 
   render() {
     return (
-      <div className=" App_flashcards">
-        <h1>hellu from flashcards</h1>
+      <div className="FlashcardsApp">
+        <h1>Hello again :) Welcome to my flashcard app !</h1>
       </div>
     );
   }
 }
 
-export default App_flashcards;
+export default FlashcardsApp;
