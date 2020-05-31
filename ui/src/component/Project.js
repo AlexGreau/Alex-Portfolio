@@ -6,11 +6,11 @@ class Project extends Component {
         const { title, img, desc, link } = this.props.project;
 
         return (
-            <div class='card projectItem'>
-                <img src={img} alt="project icon" class="card-img-top projectImage" />
-                <div class="card-body">
-                    <h4 class="card-title">{title}</h4>
-                    <p class="card-text">{desc}</p>
+            <div className='card projectItem'>
+                <img src={img} alt="project icon" className="card-img-top projectImage" />
+                <div className="card-body">
+                    <h4 className="card-title">{title}</h4>
+                    <p className="card-text">{desc}</p>
                     <a href={link}>{link}</a>
                 </div>
             </div>

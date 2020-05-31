@@ -4,26 +4,20 @@ import './App.css'
 
 
 import FlashcardsApp from './apps/app_flashcards/app_flashcards';
-import Home from './apps/app_home/home';
+import { getName } from './Routes';
 
+import Project from './component/Project';
+import PROJECTS from './data/projects';
 import Social from './component/Social';
 import SOCIALS from './data/socials'
-
+import Title from './component/Title';
 
 class App extends Component {
   state = {
     isFlashcardApp: false,
     isHome: true,
+    titleIndex: 0,
   }
-
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     isFlashcardApp: false,
-  //     isHome: true,
-  //   }
-  //   this.switchToApp_flashcard = this.switchToApp_flashcard.bind(this);
-  // }
 
   switchToApp_flashcard = () => {
     this.setState({
@@ -39,38 +33,30 @@ class App extends Component {
     })
   }
 
-  getBody = () => {
-    if (this.state.isFlashcardApp) {
-      return <FlashcardsApp />
-    } else {
-      return <Home />
-    }
-  }
-
   header = () => {
     return (
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header">
-        <a class="navbar-brand ">Alexandre Greau</a>
-        <div class="collapse navbar-collapse align-self-center" id="navbarSupportedContent">
-          <ul class="navbar-nav m-auto">
-            <li class="nav-item " onClick={this.goHome}>
-              <a  class="nav-link">Home</a>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light" id="header">
+        <a className="navbar-brand ">Alexandre Greau</a>
+        <div className="collapse navbar-collapse align-self-center" id="navbarSupportedContent">
+          <ul className="navbar-nav m-auto">
+            <li className="nav-item " >
+              <a className="nav-link">Home</a>
             </li>
-            {/* <li class="nav-item" onClick={this.switchToApp_flashcard}>
-              <a  class="nav-link">Flashcards App</a>
+            {/* <li className="nav-item" onClick={this.switchToApp_flashcard}>
+              <a  className="nav-link">Flashcards App</a>
             </li> */}
-            <li class="nav-item">
-              <a href="#aboutMe" class="nav-link">About me</a>
+            <li className="nav-item">
+              <a href="#aboutMe" className="nav-link">About me</a>
             </li>
-            <li class="nav-item">
-              <a href="#projects" class="nav-link">Projects</a>
+            <li className="nav-item">
+              <a href="#projects" className="nav-link">Projects</a>
             </li>
 
-            <li class="nav-item" >
-              <a  class="nav-link">My resume</a>
+            <li className="nav-item" >
+              <a className="nav-link">My resume</a>
             </li>
           </ul>
-          <div class="col-2 align-self-end">
+          <div className="col-2 align-self-end">
             {this.socialSection()}
           </div>
         </div>
@@ -79,16 +65,38 @@ class App extends Component {
   }
 
   aboutMe = () => {
-
+    const name = getName();
+    // const projectsSection = this.projectsSection();
+    return (
+      <div className="home">
+        <h1>Hello ! thanks for coming :)</h1>
+        <p>My name is {name}</p> <Title />
+      </div>
+    );
   }
 
-  projects = () => {
-
+  projectsSection = () => {
+    return (
+      <div id="projects">
+        <h3>Projects</h3>
+        <div className="row justify-content-center">
+          <div className="card-deck">
+            {
+              PROJECTS.map(PROJECT => {
+                return (
+                  <Project key={PROJECT.id} project={PROJECT} />
+                )
+              })
+            }
+          </div>
+        </div>
+      </div>
+    );
   }
 
   socialSection = () => {
     return (
-      <div class="btn-group" role="group">
+      <div className="btn-group" role="group">
         {
           SOCIALS.map(SOCIAL => {
             return (
@@ -101,12 +109,12 @@ class App extends Component {
   }
 
   render() {
-    const body = this.getBody();
     return (
       <div className="App">
         {this.header()}
         <div id='body' data-spy="scroll" data-target="#header" data-offset="0">
-          {body}
+          {this.aboutMe()}
+          {this.projectsSection()}
         </div>
       </div>
     );

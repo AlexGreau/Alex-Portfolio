@@ -4,6 +4,7 @@ import udemy from '../assets/udemy.png'
 const FLASHCARDS = {
     id: 1,
     title: 'Flashcards',
+    desc: 'A useful helper for my chinese learning journey',
     img: flashcards_icon,
     link: 'google.com'
 }
@@ -11,6 +12,7 @@ const FLASHCARDS = {
 const TEST = {
     id : 2,
     title: 'Test',
+    desc: 'A simple test project to experience REACT',
     img: udemy,
     link: "",
 }

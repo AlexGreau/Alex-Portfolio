@@ -7,7 +7,7 @@ class Social extends Component {
         const { name, link, img } = this.props.social;
 
         return (
-            <a href={link} class="btn btn-outline-light" >
+            <a href={link} className="btn btn-outline-light" >
                 <img src={img} alt={name} className="socialProfileImg" />
             </a>
         )

@@ -10,14 +10,14 @@ const EMAIL = {
 }
 
 const GITHUB = {
-    id: 1,
+    id: 2,
     name: "Github",
     link: 'https://github.com/AlexGreau',
     img: github_icon
 }
 
 const LINKEDIN = {
-    id: 1,
+    id: 3,
     name: "LinkedIn",
     link: 'https://www.linkedin.com/in/alexandre-greau/',
     img: linkedin_icon
