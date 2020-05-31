@@ -29,7 +29,7 @@ class Home extends React.Component {
     return (
       <div className="home">
         <h1>Hello ! thanks for coming :)</h1>
-        <p>My name is {name}, I am  a software engineer and i live in Sohpia-Antipolis</p>
+        <p>My name is {name}, I am  a software engineer and i live in Sophia-Antipolis</p>
         <div>
           {this.projectsSection()}
         </div>

@@ -5,21 +5,21 @@ import linkedin_icon from '../assets/linkedin_icon.png'
 const EMAIL = {
     id: 1,
     name: "Email",
-    link: '',
+    link: 'mailto:alexgreau@live.fr',
     img: email_icon
 }
 
 const GITHUB = {
     id: 1,
     name: "Github",
-    link: '',
+    link: 'https://github.com/AlexGreau',
     img: github_icon
 }
 
 const LINKEDIN = {
     id: 1,
     name: "LinkedIn",
-    link: '',
+    link: 'https://www.linkedin.com/in/alexandre-greau/',
     img: linkedin_icon
 }
 

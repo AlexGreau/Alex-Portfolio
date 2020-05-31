@@ -1,11 +1,14 @@
-import './App.css';
-
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import './App.css'
+
+
 import FlashcardsApp from './apps/app_flashcards/app_flashcards';
 import Home from './apps/app_home/home';
 
 import Social from './component/Social';
 import SOCIALS from './data/socials'
+
 
 class App extends Component {
   state = {
@@ -40,15 +43,39 @@ class App extends Component {
     if (this.state.isFlashcardApp) {
       return <FlashcardsApp />
     } else {
-      return <Home/>
+      return <Home />
     }
+  }
+
+  header = () => {
+    return (
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">Alexandre Greau</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item " onClick={this.goHome}>
+              <a  class="nav-link">Home</a>
+            </li>
+            <li class="nav-item" onClick={this.switchToApp_flashcard}>
+              <a  class="nav-link">Flashcards App</a>
+            </li>
+            <li class="nav-item" onClick={this.switchToApp_flashcard}>
+              <a  class="nav-link">My resume</a>
+            </li>
+          </ul>
+          <div class="col-2 align-self-end">
+            {this.socialSection()}
+          </div>
+        </div>
+      </nav>
+    )
   }
 
   socialSection = () => {
     return (
-      <div>
+      <div class="btn-group" role="group">
         {
-         SOCIALS.map(SOCIAL => {
+          SOCIALS.map(SOCIAL => {
             return (
               <Social key={SOCIAL.id} social={SOCIAL} />
             )
@@ -62,14 +89,7 @@ class App extends Component {
     const body = this.getBody();
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>hellu from app</h1>
-          <button onClick={this.switchToApp_flashcard}>Flashcards App</button>
-          <button onClick={this.goHome}>Home</button>
-          <div>
-          {this.socialSection()}
-        </div>
-        </header>
+        {this.header()}
         <div id='body'>
           {body}
         </div>

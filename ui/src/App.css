@@ -15,18 +15,24 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #e6e2da;
   min-height: 3vh;
   display: flex;
+  flex: auto;
   flex-direction: row;
-  /* align-items: center; */
-  /* justify-content: center; */
+  align-items: center;
+  /* justify-content: end; */
   font-size: calc( 1.5vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.socialSection {
+  height: inherit;
+  width: 50vw;
 }
 
 @keyframes App-logo-spin {
