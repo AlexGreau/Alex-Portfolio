@@ -50,9 +50,9 @@ class App extends Component {
   header = () => {
     return (
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand">Alexandre Greau</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+        <a class="navbar-brand ">Alexandre Greau</a>
+        <div class="collapse navbar-collapse align-self-center" id="navbarSupportedContent">
+          <ul class="navbar-nav m-auto">
             <li class="nav-item " onClick={this.goHome}>
               <a  class="nav-link">Home</a>
             </li>
