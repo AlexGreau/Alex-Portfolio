@@ -1,0 +1,12 @@
+.socialItem {
+    display: 'inline-block';
+    width: 2vw;
+    height: 2vh;
+    margin: 10;
+}
+
+.projectItem{
+    display: 'inline-block';
+    width: 300px;
+    margin: 10
+}

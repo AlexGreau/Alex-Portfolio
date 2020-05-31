@@ -21,6 +21,8 @@ class Home extends React.Component {
     );
   }
 
+
+
   render() {
     const name = getName();
     // const projectsSection = this.projectsSection();

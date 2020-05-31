@@ -4,6 +4,9 @@ import React, { Component } from 'react';
 import FlashcardsApp from './apps/app_flashcards/app_flashcards';
 import Home from './apps/app_home/home';
 
+import Social from './component/Social';
+import SOCIALS from './data/socials'
+
 class App extends Component {
   state = {
     isFlashcardApp: false,
@@ -41,6 +44,20 @@ class App extends Component {
     }
   }
 
+  socialSection = () => {
+    return (
+      <div>
+        {
+         SOCIALS.map(SOCIAL => {
+            return (
+              <Social key={SOCIAL.id} social={SOCIAL} />
+            )
+          })
+        }
+      </div>
+    )
+  }
+
   render() {
     const body = this.getBody();
     return (
@@ -49,6 +66,9 @@ class App extends Component {
           <h1>hellu from app</h1>
           <button onClick={this.switchToApp_flashcard}>Flashcards App</button>
           <button onClick={this.goHome}>Home</button>
+          <div>
+          {this.socialSection()}
+        </div>
         </header>
         <div id='body'>
           {body}
