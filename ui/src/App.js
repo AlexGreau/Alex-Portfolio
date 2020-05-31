@@ -49,17 +49,24 @@ class App extends Component {
 
   header = () => {
     return (
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header">
         <a class="navbar-brand ">Alexandre Greau</a>
         <div class="collapse navbar-collapse align-self-center" id="navbarSupportedContent">
           <ul class="navbar-nav m-auto">
             <li class="nav-item " onClick={this.goHome}>
               <a  class="nav-link">Home</a>
             </li>
-            <li class="nav-item" onClick={this.switchToApp_flashcard}>
+            {/* <li class="nav-item" onClick={this.switchToApp_flashcard}>
               <a  class="nav-link">Flashcards App</a>
+            </li> */}
+            <li class="nav-item">
+              <a href="#aboutMe" class="nav-link">About me</a>
             </li>
-            <li class="nav-item" onClick={this.switchToApp_flashcard}>
+            <li class="nav-item">
+              <a href="#projects" class="nav-link">Projects</a>
+            </li>
+
+            <li class="nav-item" >
               <a  class="nav-link">My resume</a>
             </li>
           </ul>
@@ -69,6 +76,14 @@ class App extends Component {
         </div>
       </nav>
     )
+  }
+
+  aboutMe = () => {
+
+  }
+
+  projects = () => {
+
   }
 
   socialSection = () => {
@@ -90,7 +105,7 @@ class App extends Component {
     return (
       <div className="App">
         {this.header()}
-        <div id='body'>
+        <div id='body' data-spy="scroll" data-target="#header" data-offset="0">
           {body}
         </div>
       </div>

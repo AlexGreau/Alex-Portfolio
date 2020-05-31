@@ -1,4 +1,4 @@
-import flashcards_icon from '../assets/flashcards_icon.png';
+import flashcards_icon from '../assets/cards.jpg';
 import udemy from '../assets/udemy.png'
 
 const FLASHCARDS = {

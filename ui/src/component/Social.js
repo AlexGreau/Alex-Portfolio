@@ -8,7 +8,7 @@ class Social extends Component {
 
         return (
             <a href={link} class="btn btn-outline-light" >
-                <img src={img} alt={name} className="projectImage" />
+                <img src={img} alt={name} className="socialProfileImg" />
             </a>
         )
     }

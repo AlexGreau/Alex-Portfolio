@@ -9,14 +9,16 @@ class Home extends React.Component {
 
   projectsSection = () => {
     return (
-      <div>
-        {
-          PROJECTS.map(PROJECT => {
-            return (
-              <Project key={PROJECT.id} project={PROJECT} />
-            )
-          })
-        }
+      <div class="row justify-content-center">
+        <div class="card-deck">
+          {
+            PROJECTS.map(PROJECT => {
+              return (
+                <Project key={PROJECT.id} project={PROJECT} />
+              )
+            })
+          }
+        </div>
       </div>
     );
   }
