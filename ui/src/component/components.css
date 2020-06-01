@@ -1,0 +1,18 @@
+.projectItem {
+    width: 18rem;
+    max-width: 200px;
+}
+
+.projectImage {
+    width: 100%;
+    height: 200px;
+}
+
+.socialProfileImg {
+    width: 28px;
+    height: 28px;
+}
+
+.card-body {
+    text-align: left;
+}
