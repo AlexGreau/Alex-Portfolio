@@ -1,5 +1,6 @@
 import React from "react";
 import './components.css';
+import SOCIALS from '../data/socials'
 
 const Social = props => {
     const { name, link, img } = props.social;
@@ -11,4 +12,18 @@ const Social = props => {
     )
 }
 
-export default Social;
+const SocialSection = () => {
+    return (
+        <div className="btn-group" role="group">
+            {
+                SOCIALS.map(SOCIAL => {
+                    return (
+                        <Social key={SOCIAL.id} social={SOCIAL} />
+                    )
+                })
+            }
+        </div>
+    )
+}
+
+export default SocialSection;

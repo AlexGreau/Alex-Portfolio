@@ -17,7 +17,7 @@ class Joke extends Component {
             .catch((err) => {
                 console.log(err);
                 this.setState({
-                    joke: {id: 404, setup: 'could not fetch the joke :(', punchline: ''}
+                    joke: { id: 404, setup: 'could not fetch the joke :(', punchline: '' }
                 })
             });
     }
@@ -35,4 +35,13 @@ class Joke extends Component {
     }
 }
 
-export default Joke;
+const JokeSection = () => {
+    return (
+        <div>
+            <hr />
+            <Joke />
+        </div>
+    )
+}
+
+export default JokeSection;

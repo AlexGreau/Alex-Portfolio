@@ -1,5 +1,6 @@
 import React from "react";
 import './components.css';
+import PROJECTS from '../data/projects';
 
 const Project = props => {
     const { title, img, desc, link } = props.project;
@@ -16,5 +17,24 @@ const Project = props => {
     );
 }
 
+const ProjectSection = () => {
+    return (
+        <div id="projects">
+            <h3>Projects</h3>
+            <div className="row justify-content-center">
+                <div className="card-deck">
+                    {
+                        PROJECTS.map(PROJECT => {
+                            return (
+                                <Project key={PROJECT.id} project={PROJECT} />
+                            )
+                        })
+                    }
+                </div>
+            </div>
+        </div>
+    )
+}
 
-export default Project;
+
+export default ProjectSection;
