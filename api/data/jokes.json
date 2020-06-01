@@ -1,0 +1,117 @@
+[
+    {
+        "id": 0,
+        "type": "general",
+        "setup": "What do you call someone with no body and no nose?  ",
+        "punchline": "Nobody knows."        
+    },
+    {
+        "id": 1,
+        "type": "general",
+        "setup": "How many lips does a flower have?",
+        "punchline": "Tulips"
+      },
+      {
+        "id": 2,
+        "type": "general",
+        "setup": "How do you organize an outer space party?",
+        "punchline": "You planet"
+      },
+      {
+        "id": 3,
+        "type": "general",
+        "setup": "What kind of shoes does a thief wear?",
+        "punchline": "Sneakers"
+      },
+      {
+        "id": 4,
+        "type": "general",
+        "setup": "What's the best time to go to the dentist?",
+        "punchline": "Tooth hurty."
+      },
+      {
+        "id":5,
+        "type": "knock-knock",
+        "setup": "Knock knock. \n Who's there? \n A broken pencil. \n A broken pencil who?",
+        "punchline": "Never mind. It's pointless."
+      },
+      {
+        "id": 6,
+        "type": "knock-knock",
+        "setup": "Knock knock. \n Who's there? \n Cows go. \n Cows go who?",
+        "punchline": "No, cows go moo."
+      },
+      {
+        "id": 7,
+        "type": "knock-knock",
+        "setup": "Knock knock. \n Who's there? \n Little old lady. \n Little old lady who?",
+        "punchline": "I didn't know you could yodel!"
+      },
+      {
+        "id": 8,
+        "type": "programming",
+        "setup": "What's the best thing about a Boolean?",
+        "punchline": "Even if you're wrong, you're only off by a bit."
+      },
+      {
+        "id": 9,
+        "type": "programming",
+        "setup": "What's the object-oriented way to become wealthy?",
+        "punchline": "Inheritance"
+      },
+      {
+        "id": 10,
+        "type": "programming",
+        "setup": "Where do programmers like to hangout?",
+        "punchline": "The Foo Bar."
+      },
+      {
+        "id": 11,
+        "type": "programming",
+        "setup": "Why did the programmer quit his job?",
+        "punchline": "Because he didn't get arrays."
+      },
+      {
+        "id": 12,
+        "type": "general",
+        "setup": "Did you hear about the two silk worms in a race?",
+        "punchline": "It ended in a tie."
+      },
+      {
+        "id": 13,
+        "type": "general",
+        "setup": "What do you call a laughing motorcycle?",
+        "punchline": "A Yamahahahaha."
+      },
+      {
+        "id": 14,
+        "type": "general",
+        "setup": "A termite walks into a bar and says...",
+        "punchline": "'Where is the bar tended?'"
+      },
+      {
+        "id": 15,
+        "type": "general",
+        "setup": "What does C.S. Lewis keep at the back of his wardrobe?",
+        "punchline": "Narnia business!"
+      },
+      {
+        "id": 16,
+        "type": "programming",
+        "setup": "Why do programmers always mix up Halloween and Christmas?",
+        "punchline": "Because Oct 31 == Dec 25"
+      },
+      {
+        "id": 17,
+        "type": "programming",
+        "setup": "A SQL query walks into a bar, walks up to two tables and asks...",
+        "punchline": "'Can I join you?'"
+      },
+      {
+        "id": 18,
+        "type": "programming",
+        "setup": "How many programmers does it take to change a lightbulb?",
+        "punchline": "None that's a hardware problem"
+      }
+
+]

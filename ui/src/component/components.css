@@ -16,3 +16,33 @@
 .card-body {
     text-align: left;
 }
+
+.title-fadeOut {
+    opacity: 0;
+    animation-name: fade-out;
+    animation-duration: 2s;
+}
+
+.title-fadeIn {
+    opacity: 100;
+    animation-name: fade-in;
+    animation-duration: 2s;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 100
+    }
+    to {
+        opacity: 0
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 100
+    }
+}
