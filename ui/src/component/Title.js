@@ -5,7 +5,7 @@ class Title extends Component {
     state = { titleIndex: 0 };
 
     componentDidMount() {
-        console.log('title has mounted')
+      //  console.log('title has mounted')
 
         this.animateTitles();
     }
@@ -14,7 +14,6 @@ class Title extends Component {
         setInterval(() => {
             const newTitleIndex = (this.state.titleIndex + 1) % TITLES.length;
             this.setState({ titleIndex: newTitleIndex })
-            console.log("next index to be : ", this.state.titleIndex)
         }, 4000);
     }
 
