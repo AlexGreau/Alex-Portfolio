@@ -17,6 +17,7 @@ class App extends Component {
   state = {
     isFlashcardApp: false,
     isHome: true,
+    displayBio: false,
     titleIndex: 0,
   }
 
@@ -25,6 +26,10 @@ class App extends Component {
       isFlashcardApp: true,
       isHome: false
     })
+  }
+
+  toggleDisplayBio = () => {
+    this.setState({ displayBio: !this.state.displayBio })
   }
 
   goHome = () => {
@@ -65,13 +70,25 @@ class App extends Component {
     )
   }
 
+  bio = () => {
+
+  }
+
   aboutMe = () => {
     const name = getName();
     // const projectsSection = this.projectsSection();
     return (
       <div className="home">
         <h1>Hello ! thanks for coming :)</h1>
-        <p>My name is {name}</p> <Title />
+        <p>My name is {name}</p>
+        {
+          this.state.displayBio ? (
+            <div>
+              <Title />
+              <button onClick={this.toggleDisplayBio}>show less</button>
+            </div>
+          ) : <button onClick={this.toggleDisplayBio}>show more</button>
+        }
       </div>
     );
   }

@@ -2,30 +2,37 @@ import React, { Component } from "react";
 import TITLES from '../data/titles';
 
 class Title extends Component {
-    state = { titleIndex: 0 };
+    state = { titleIndex: 0, fadeIn: true , rotationDuration: 4000};
 
     componentDidMount() {
       //  console.log('title has mounted')
-
+        this.fadeTimeout = setTimeout(()=> {
+         this.setState({fadeIn: false})  
+        }, this.state.rotationDuration/2)
         this.animateTitles();
     }
 
     componentWillUnmount(){
         clearInterval(this.titleInterval);
+        clearTimeout(this.fadeTimeout);
     }
 
     animateTitles = () => {
         this.titleInterval = setInterval(() => {
             const newTitleIndex = (this.state.titleIndex + 1) % TITLES.length;
-            this.setState({ titleIndex: newTitleIndex })
-        }, 4000);
+            this.setState({ titleIndex: newTitleIndex , fadeIn: true})
+            this.fadeTimeout = setTimeout(()=> {
+                this.setState({fadeIn: false})  
+               }, this.state.rotationDuration/2)
+        }, this.state.rotationDuration);
     }
 
 
     render() {
-        const title = TITLES[this.state.titleIndex];
+        const {fadeIn, titleIndex} = this.state
+        const title = TITLES[titleIndex];
         return (
-            <p>I am {title}</p>
+            <p className={fadeIn ? 'title-fadeIn' : 'title-fadeOut' }>I am {title}</p>
         );
     }
 }
