@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css'
 
 
-import FlashcardsApp from './apps/app_flashcards/app_flashcards';
+// import FlashcardsApp from './apps/app_flashcards/app_flashcards';
 import { getName } from './Routes';
 
 import Project from './component/Project';
@@ -12,6 +12,7 @@ import Social from './component/Social';
 import SOCIALS from './data/socials'
 import Title from './component/Title';
 
+import resume from './assets/resume.pdf'
 class App extends Component {
   state = {
     isFlashcardApp: false,
@@ -36,11 +37,11 @@ class App extends Component {
   header = () => {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light" id="header">
-        <a className="navbar-brand ">Alexandre Greau</a>
+        <a className="navbar-brand" href="#root">Alexandre Greau</a>
         <div className="collapse navbar-collapse align-self-center" id="navbarSupportedContent">
           <ul className="navbar-nav m-auto">
             <li className="nav-item " >
-              <a className="nav-link">Home</a>
+              <a className="nav-link" href="#root">Home</a>
             </li>
             {/* <li className="nav-item" onClick={this.switchToApp_flashcard}>
               <a  className="nav-link">Flashcards App</a>
@@ -53,7 +54,7 @@ class App extends Component {
             </li>
 
             <li className="nav-item" >
-              <a className="nav-link">My resume</a>
+              <a className="nav-link" href={resume}>My resume</a>
             </li>
           </ul>
           <div className="col-2 align-self-end">
