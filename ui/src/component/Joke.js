@@ -16,6 +16,9 @@ class Joke extends Component {
             })
             .catch((err) => {
                 console.log(err);
+                this.setState({
+                    joke: {id: 404, setup: 'could not fetch the joke :(', punchline: ''}
+                })
             });
     }
 
