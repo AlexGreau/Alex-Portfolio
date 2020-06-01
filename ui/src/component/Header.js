@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SocialSection from './Social';
 import resume from '../assets/resume.pdf'
 import { Link } from 'react-router-dom';
 
 
-class Header extends Component {
-
-  render() {
-    return (
+const Header = (props) => {
+  return (
+    <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light" id="header">
         <a className="navbar-brand" href="#root">Alexandre Greau</a>
         <div className="collapse navbar-collapse align-self-center" id="navbarSupportedContent">
@@ -30,12 +29,13 @@ class Header extends Component {
             </li>
           </ul>
           <div className="col-2 align-self-end">
-            {SocialSection()}
+            <SocialSection />
           </div>
         </div>
       </nav>
-    )
-  }
+      {props.children}
+    </div>
+  )
 }
 
 export default Header;
