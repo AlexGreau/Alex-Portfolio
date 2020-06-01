@@ -1,0 +1,49 @@
+Core React - Glossary of Key Terms
+
+
+Components: Reusable pieces of the application UI that has inner dynamic functionality and state.
+
+
+Classes: Interfaces of properties and methods that will be assigned to object instances.
+
+
+Inheritance: The extension of existing properties and methods from a parent class to a subclass. The subclass extends the parent class to inherit the base parent class’s methods and properties.
+
+
+State: The internal data of a React component. The state can be updated through interactions with the component during the application.
+
+
+SetState: The official way to update state in a React component. It is a react rule to not modify the state directly. Instead, provide new values for keys in the state, using the setState() method. The setState() method recalls the render method when complete, giving the component the chance to reflect changes in the UI.
+
+
+.bind: A JavaScript method that passes the this object down from a component to a helper methods. Crucial for components to pass down the `this.setState()` method to helper methods.
+
+
+Class Properties and Initializers: An alternative syntax for declaring the state and within components that automatically binds the `this` object.
+
+
+Props: Data passed down to the React component from the parent.
+
+
+Bundling: The packaging of multiple JavaScript files and their dependencies into one giant file that the HTML can refer to.
+
+
+DOM: The Document Object Model for the web application. The document object, provided to the JavaScript, allows methods to update the UI.
+
+
+React’s Virtual DOM: An internal virtual representation of the DOM, that is much lighter weight, which allows React to efficiently compute updates using the `document API`.
+
+
+Lifecycle Methods: Method that fire in different phases in the React component. Most have to do with the component’s relationship with the document. For example, componentDidMount fires when the component appears in (mounts to) the DOM. Likewise, componentWillUnmount fires when the component is about to leave (unmount from) the DOM.
+
+
+Fetch: Implemented as a JavaScript promise, this method can make HTTP requests to grab data.
+
+
+Stateless Functional Components: An alternative cleaner syntax to create React components based on returning JSX from a function.
+
+
+React Router: A technology which can turn a single-page app into one with multiple pages of content based on paths.
+
+
+Higher Order Components: Components that take other components as inputs, to return an entirely new component. They are like functions which have component inputs, and output a new customized component, based on that component input.

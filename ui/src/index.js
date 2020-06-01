@@ -4,14 +4,17 @@ import { Router, Switch, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import './index.css';
 import App from './App';
-import app_Flashcards from './apps/app_flashcards/app_flashcards'
+import FlashcardsApp from './apps/app_flashcards/app_flashcards';
+import Hello from './component/Hello';
+import Header from './component/Header';
 
 
 ReactDOM.render(
   <Router history={createBrowserHistory()}>
     <Switch>
-      <Route exact path='/' component={App}></Route>
-      <Route path='/flashcards' component={app_Flashcards}></Route>
+      <Route exact path='/' render={()=> <Header><App/></Header>}></Route>
+      <Route path='/flashcards' render={()=> <Header ><FlashcardsApp/></Header>}></Route>
+      <Route path='/helloworld' render={() => <Header><Hello/></Header>}></Route>
     </Switch>
   </Router>
   ,

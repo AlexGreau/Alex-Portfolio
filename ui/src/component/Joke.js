@@ -4,7 +4,12 @@ class Joke extends Component {
     state = { joke: {}, jokes: [] };
 
     componentDidMount() {
+        this.mounted = true;
         this.fetchJoke();
+    }
+
+    componentWillUnmount() {
+        this.mounted = false;
     }
 
     fetchJoke = () => {
@@ -12,13 +17,17 @@ class Joke extends Component {
         fetch(url)
             .then(response => response.json())
             .then(json => {
-                this.setState({ joke: json })
+                if (this.mounted) {
+                    this.setState({ joke: json })
+                }
             })
             .catch((err) => {
                 console.log(err);
-                this.setState({
-                    joke: { id: 404, setup: 'could not fetch the joke :(', punchline: '' }
-                })
+                if (this.mounted) {
+                    this.setState({
+                        joke: { id: 404, setup: 'could not fetch the joke :(', punchline: '' }
+                    })
+                }
             });
     }
 

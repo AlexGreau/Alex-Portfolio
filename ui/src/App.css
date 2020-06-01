@@ -1,6 +1,7 @@
 .App {
   display: grid;
   text-align: center;
+  height: 100%;
 }
 
 .App-header {

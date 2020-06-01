@@ -1,6 +1,6 @@
 .projectItem {
-    width: 18rem;
-    max-width: 200px;
+    width: 25rem;
+    max-width: 300px;
 }
 
 .projectImage {
@@ -15,6 +15,17 @@
 
 .card-body {
     text-align: left;
+}
+
+#helloDiv {
+    height: 50%;
+    overflow: hidden;
+}
+
+#hello {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
 }
 
 .title-fadeOut {
