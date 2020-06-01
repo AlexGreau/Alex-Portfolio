@@ -17,6 +17,17 @@
     text-align: left;
 }
 
+#helloDiv {
+    height: 50%;
+    overflow: hidden;
+}
+
+#hello {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+}
+
 .title-fadeOut {
     opacity: 0;
     animation-name: fade-out;
