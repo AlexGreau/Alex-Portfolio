@@ -4,11 +4,9 @@ const express = require('express');
 const hostname = '127.0.0.1';
 const app = express();
 const buildPath = path.join(__dirname, '../../ui/' , 'build');
-const port = process.env.PORT || 1234;
+const port = process.env.PORT || 3000;
 
-const jokes = require ('../data/jokes.json') 
-//const resume = require ('../assets/resume.pdf')
-
+const jokesController = require ('../controllers/jokesController') 
 
 app.use(express.static(buildPath));
 
@@ -46,12 +44,15 @@ app.get('/home/name',(req, res)=> {
   res.json({name : "Alexandre Greau"});
 });
 
-app.get('/randomJoke', (req,res) => {
-  res.json(jokes[Math.floor(Math.random() * jokes.length)]);
-});
+// random joke
+app.get('/randomJoke', (req, res) => {
+  res.json(jokesController.getRandomJoke())
+})
 
-// resume
-//app.get('/resume', (req,res) => {resume});
+// set of 10 random jokes
+app.get('/tenRandomJoke', (req, res) => {
+  res.json(jokesController.randomTen())
+})
 
 // Default route
 app.get('/home',(req, res) => { // site content
