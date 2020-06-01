@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "server": "nodemon api/server/server.js",
+    "server": "node api/server/server.js",
     "ui": "cd ui && npm start",
-    "startall": "concurrently \"cd ui && npm start \" \"nodemon api/server/server.js\"",
+    "startall": "concurrently \"cd ui && npm start \" \"node api/server/server.js\"",
     "build": "cd ui && npm run build",
     "start": "cd ui && npm run build && node ../api/server/server.js"
   },

@@ -12,3 +12,16 @@ export function getName() {
     //         console.log(err);
     //     });
 };
+
+export function getJoke() {
+    const url = '/randomJoke'
+    fetch(url)
+        .then(function (response) {
+            response.json().then(function (res) {
+                console.log(res.punchline)
+            })
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+}

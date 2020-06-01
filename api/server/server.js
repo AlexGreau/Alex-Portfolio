@@ -4,7 +4,11 @@ const express = require('express');
 const hostname = '127.0.0.1';
 const app = express();
 const buildPath = path.join(__dirname, '../../ui/' , 'build');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 1234;
+
+const jokes = require ('../data/jokes.json') 
+//const resume = require ('../assets/resume.pdf')
+
 
 app.use(express.static(buildPath));
 
@@ -42,6 +46,12 @@ app.get('/home/name',(req, res)=> {
   res.json({name : "Alexandre Greau"});
 });
 
+app.get('/randomJoke', (req,res) => {
+  res.json(jokes[Math.floor(Math.random() * jokes.length)]);
+});
+
+// resume
+//app.get('/resume', (req,res) => {resume});
 
 // Default route
 app.get('/home',(req, res) => { // site content
