@@ -85,12 +85,10 @@ class App extends Component {
           this.state.displayBio ? (
             <div>
               <Title />
-              <button onClick={this.toggleDisplayBio}>show less</button>
+              <button onClick={this.toggleDisplayBio} className="btn btn-outline-info">show less</button>
             </div>
-          ) : <button onClick={this.toggleDisplayBio}>show more</button>
+          ) : <button onClick={this.toggleDisplayBio} className="btn btn-info">show more</button>
         }
-        <hr/>
-        {this.jokeSection()}
       </div>
     );
   }
@@ -137,6 +135,8 @@ class App extends Component {
         <div id='body' data-spy="scroll" data-target="#header" data-offset="0">
           {this.aboutMe()}
           {this.projectsSection()}
+          <hr/>
+        {this.jokeSection()}  
         </div>
       </div>
     );

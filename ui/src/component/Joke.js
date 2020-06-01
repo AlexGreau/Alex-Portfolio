@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 
 class Joke extends Component {
-    state = { joke: {} };
+    state = { joke: {}, jokes: [] };
 
     componentDidMount() {
+        this.fetchJoke();
+    }
+
+    fetchJoke = () => {
         const url = '/randomJoke'
         fetch(url)
             .then(response => response.json())
@@ -22,6 +26,7 @@ class Joke extends Component {
                 <h2>Joke of the day</h2>
                 <p>{setup}</p>
                 <p><em>{punchline}</em></p>
+                <button onClick={this.fetchJoke} className="btn btn-light">Another joke ?</button>
             </div>
         )
     }
