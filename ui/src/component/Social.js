@@ -1,17 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import './components.css';
 
-class Social extends Component {
+const Social = props => {
+    const { name, link, img } = props.social;
 
-    render() {
-        const { name, link, img } = this.props.social;
-
-        return (
-            <a href={link} className="btn btn-outline-light" >
-                <img src={img} alt={name} className="socialProfileImg" />
-            </a>
-        )
-    }
+    return (
+        <a href={link} className="btn btn-outline-light" >
+            <img src={img} alt={name} className="socialProfileImg" />
+        </a>
+    )
 }
 
 export default Social;

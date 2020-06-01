@@ -11,6 +11,7 @@ import PROJECTS from './data/projects';
 import Social from './component/Social';
 import SOCIALS from './data/socials'
 import Title from './component/Title';
+import Joke from './component/Joke';
 
 import resume from './assets/resume.pdf'
 class App extends Component {
@@ -70,13 +71,12 @@ class App extends Component {
     )
   }
 
-  bio = () => {
-
+  jokeSection = () => {
+    return <Joke />   
   }
 
   aboutMe = () => {
     const name = getName();
-    // const projectsSection = this.projectsSection();
     return (
       <div className="home">
         <h1>Hello ! thanks for coming :)</h1>
@@ -89,6 +89,8 @@ class App extends Component {
             </div>
           ) : <button onClick={this.toggleDisplayBio}>show more</button>
         }
+        <hr/>
+        {this.jokeSection()}
       </div>
     );
   }
@@ -125,6 +127,8 @@ class App extends Component {
       </div>
     )
   }
+
+
 
   render() {
     return (

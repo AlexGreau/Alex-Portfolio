@@ -16,12 +16,12 @@ export function getName() {
 export function getJoke() {
     const url = '/randomJoke'
     fetch(url)
-        .then(function (response) {
+        .then((response) => {
             response.json().then(function (res) {
-                console.log(res.punchline)
+                console.log(res)
             })
         })
-        .catch(function (err) {
+        .catch((err) => {
             console.log(err);
         });
 }
