@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div id='body' data-spy="scroll" data-target="#header" data-offset="0">
+        <div id='body' data-spy="scroll" data-target="#header" data-offset="0" className="container-fluid">
           <Bio/>
           <ProjectSection />
           <JokeSection />
