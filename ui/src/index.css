@@ -9,6 +9,8 @@ body {
 }
 html, #root{
   margin:0;
+  display: flex;
+  flex-flow: column;
   height: 100%;
 }
 

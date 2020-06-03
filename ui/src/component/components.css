@@ -1,3 +1,17 @@
+.box {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}
+
+#header{
+    flex: 0 1 auto;
+}
+
+#body {
+    flex: 1 1 auto;
+}
+
 .projectItem {
     width: 25rem;
     max-width: 300px;
@@ -18,7 +32,7 @@
 }
 
 #helloDiv {
-    height: 100vh;
+    flex: 1 1 auto;
     background: url('../assets/hello.jpg') no-repeat center fixed;
     background-size: cover;
 }
