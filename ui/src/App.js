@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css'
 
 
-// import FlashcardsApp from './apps/app_flashcards/app_flashcards';
 import ProjectSection from './component/Project';
 import JokeSection from './component/Joke';
 import Bio from './component/Bio';

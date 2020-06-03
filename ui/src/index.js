@@ -4,7 +4,7 @@ import { Router, Switch, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import './index.css';
 import App from './App';
-import FlashcardsApp from './apps/app_flashcards/app_flashcards';
+import FlashcardsApp from './projects/flashcards-app/flashcardsApp';
 import Hello from './component/Hello';
 import Header from './component/Header';
 
