@@ -7,7 +7,6 @@ class Tracks extends Component {
         previewUrlPlaying: null,
     }
 
-
     playAudio = (preview_url) => () => {
         if (this.state.playing) {
             if (preview_url === this.state.previewUrlPlaying) {
@@ -27,8 +26,6 @@ class Tracks extends Component {
             this.setState({ audio: audioTrack, playing: true, previewUrlPlaying: preview_url});
             audioTrack.play();
         }
-
-        console.log("new state : ", this.state)
     }
 
     render() {
