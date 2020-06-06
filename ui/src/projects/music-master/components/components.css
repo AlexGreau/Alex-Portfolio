@@ -5,20 +5,29 @@
     min-width: 10rem;
 }
 
-.artistProfile {
+.artist {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+.artistPic {
     width: 200px;
     height: 200px;
     border-radius: 100px;
-    /*min-width: 200px;
-    min-height: 200px;
-     max-width: 200px;
-    max-height: 200px; */
     object-fit: cover;
 }
 
 .trackImage{
     width: 10vw;
     height: 10vw;
+    min-width: 100px;
+    min-height: 100px;
+}
+
+.tracksSection{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .musicMaster {

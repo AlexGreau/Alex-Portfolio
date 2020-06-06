@@ -5,13 +5,14 @@ const Artist = (props) => {
     if (!props.artist) return null;
     const { images, followers, name, genres } = props.artist;
     return (
-        <div>
-            <h3>{name}</h3>
-            <p>{followers.total} followers</p>
-            <p>{genres.join()}</p>
+        <div className="artist">
+            <h2>{name}</h2>
             <img alt="artist profile"
              src={images[0] && images[0].url}
-             className="artistProfile"></img>
+             className="artistPic"></img>
+             <p>{genres.join()}</p>
+            <p>{followers.total} followers</p>
+
         </div>
     )
 }

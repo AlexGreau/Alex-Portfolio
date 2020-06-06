@@ -30,7 +30,7 @@ class Tracks extends Component {
 
     render() {
         return (
-            <div>
+            <div className="tracksSection">
                 {this.props.tracks.map(track => {
                     return (
                         <Track track={track} clickHandler={this.playAudio(track.preview_url)} key={track.id}></Track>
@@ -46,7 +46,7 @@ const Track = (props) => {
     const track = props.track;
     const handler = props.clickHandler;
     return (
-        <div key={track.id} onClick={handler}>
+        <div key={track.id} onClick={handler} className="col-2">
             <img src={track.album.images[0] && track.album.images[0].url} alt="track" className="trackImage" />
             <p>{track.name}</p>
         </div>

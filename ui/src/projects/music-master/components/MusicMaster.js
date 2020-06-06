@@ -10,6 +10,10 @@ const SPOTIFY_API_URL = 'https://spotify-api-wrapper.appspot.com/';
 class MusicMaster extends Component {
     state = {artistResult: null, tracks: [] };
 
+    componentDidMount() {
+        this.searchArtist('bruno');
+    }
+
     updateArtistQuery = (event) => {
         this.setState({ artistQuery: event.target.value })
     }
@@ -21,7 +25,6 @@ class MusicMaster extends Component {
             .then((res) => {
                 if (res.artists.total > 0) {
                     const artist = res.artists.items[0];
-                    console.log("fetched artist : ", artist)
                     this.setState({ artistResult: artist });
                     this.searchTops(artist.id)
                 }
@@ -40,11 +43,11 @@ class MusicMaster extends Component {
     }
 
     render() {
-        console.log("state of MM : ", this.state)
         return (
             <div className="musicMaster">
                 <h2>Music Master</h2>
                 <Search searchArtist={this.searchArtist}/>
+                <hr/>
                 {this.state.artistResult ? 
                     <div>
                         <Artist artist={this.state.artistResult} />
