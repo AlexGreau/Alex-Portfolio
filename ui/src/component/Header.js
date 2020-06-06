@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Header = (props) => {
   return (
-    <div>
+    <div className="box">
       <nav className="navbar navbar-expand navbar-light bg-light" id="header">
         <a className="navbar-brand" href="#root">Alexandre Greau</a>
         <div className="navbar-collapse align-self-center">

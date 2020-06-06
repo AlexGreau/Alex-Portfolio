@@ -12,7 +12,7 @@ const EMAIL = {
 const GITHUB = {
     id: 2,
     name: "Github",
-    link: 'https://github.com/AlexGreau',
+    link: 'https://github.com/AlexGreau/Alex-Portfolio',
     img: github_icon
 }
 
