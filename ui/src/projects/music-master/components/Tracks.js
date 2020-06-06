@@ -1,36 +1,59 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Tracks = (props) => {
-    // props.track.preview_url
-    console.log("tracks props ", props)
-    return (
-        <div>
-            {props.tracks.map(track => {
-                return (
-                    <Track track={track} key={track.id}></Track>
-                )
-            })}
-        </div>
-    )
+class Tracks extends Component {
+    state = {
+        playing: false,
+        audio: null,
+        previewUrlPlaying: null,
+    }
+
+
+    playAudio = (preview_url) => () => {
+        if (this.state.playing) {
+            if (preview_url === this.state.previewUrlPlaying) {
+                // stop playing
+                this.state.audio.pause();
+                this.setState({ playing: false});
+            } else {
+                this.state.audio.pause();
+                // start another song
+                const audioTrack = new Audio(preview_url);
+                this.setState({ audio: audioTrack, playing: true, previewUrlPlaying: preview_url});
+                audioTrack.play();
+            }
+        } else {
+            const audioTrack = new Audio(preview_url);
+            // play music
+            this.setState({ audio: audioTrack, playing: true, previewUrlPlaying: preview_url});
+            audioTrack.play();
+        }
+
+        console.log("new state : ", this.state)
+    }
+
+    render() {
+        return (
+            <div>
+                {this.props.tracks.map(track => {
+                    return (
+                        <Track track={track} clickHandler={this.playAudio(track.preview_url)} key={track.id}></Track>
+                    )
+                })}
+            </div>
+        )
+    }
 
 }
 
 const Track = (props) => {
     const track = props.track;
-    console.log("track : ", track)
+    const handler = props.clickHandler;
     return (
-        <div key={track.id} onClick={playAudio(track.preview_url)}>
+        <div key={track.id} onClick={handler}>
             <img src={track.album.images[0] && track.album.images[0].url} alt="track" className="trackImage" />
             <p>{track.name}</p>
         </div>
     )
 }
-
-const playAudio = (audioUrl) => () => {
-    console.log("audio url ", audioUrl)
-    const audio = new Audio(audioUrl);
-    audio.play();
-}
-
 
 export default Tracks;
