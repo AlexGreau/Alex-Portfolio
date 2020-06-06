@@ -10,10 +10,6 @@ const SPOTIFY_API_URL = 'https://spotify-api-wrapper.appspot.com/';
 class MusicMaster extends Component {
     state = {artistResult: null, tracks: [] };
 
-    componentDidMount() {
-        this.searchArtist('bruno');
-    }
-
     updateArtistQuery = (event) => {
         this.setState({ artistQuery: event.target.value })
     }

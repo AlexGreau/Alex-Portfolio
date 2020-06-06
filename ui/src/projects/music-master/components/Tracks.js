@@ -7,7 +7,16 @@ class Tracks extends Component {
         previewUrlPlaying: null,
     }
 
+    componentWillUnmount() {
+        this.state.audio.pause();
+        this.setState({ playing: false});
+    }
+
     playAudio = (preview_url) => () => {
+        if (!preview_url){
+            alert("No preview available for this song.. :(");
+            return;
+        }
         if (this.state.playing) {
             if (preview_url === this.state.previewUrlPlaying) {
                 // stop playing
