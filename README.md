@@ -1,4 +1,7 @@
-# PearProgramming
+# Portfolio
+
+This App regroups some of the projects I have done for fun and by curiosity
+
 
 ## Script sheet
 ```

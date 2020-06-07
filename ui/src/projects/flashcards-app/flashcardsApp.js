@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './app_flashcards.css';
+import './flashcardsApp.css';
 
 class FlashcardsApp extends React.Component {
   render() {
