@@ -9,6 +9,8 @@ import Hello from './component/Hello';
 import MusicMaster from './projects/music-master/index'
 import Header from './component/Header';
 
+import BaseSyntax from './projects/base-syntax/base';
+
 
 ReactDOM.render(
   <Router history={createBrowserHistory()}>
@@ -16,7 +18,8 @@ ReactDOM.render(
       <Route exact path='/' render={()=> <Header><App/></Header>}></Route>
       <Route path='/flashcards' render={()=> <Header><FlashcardsApp/></Header>}></Route>
       <Route path='/helloworld' render={() => <Header><Hello/></Header>}></Route>
-      <Route path='/music-master' render= {() => <Header><MusicMaster/></Header>}></Route><Route/>
+      <Route path='/music-master' render= {() => <Header><MusicMaster/></Header>}></Route>
+      <Route path='/base-syntax' render= {() => <BaseSyntax/>}></Route>
     </Switch>
   </Router>
   ,
