@@ -23,7 +23,7 @@
     height: 100%
 }
 
-.track-text {
+.track_text {
     color: white;
     position: absolute;
     width: 100%;
@@ -33,7 +33,7 @@
     background: rgba(0, 0, 0, 0.7);
 }
 
-.track-icon {
+.track_icon {
     position: absolute;
     bottom: 35%;
     left: 40%;
