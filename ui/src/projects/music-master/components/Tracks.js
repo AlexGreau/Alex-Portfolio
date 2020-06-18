@@ -8,7 +8,9 @@ class Tracks extends Component {
     }
 
     componentWillUnmount() {
-        this.state.audio.pause();
+        if (this.state.audio){
+            this.state.audio.pause();
+        }
         this.setState({ playing: false});
     }
 
