@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import classes from './components.module.css';
+
 
 class Tracks extends Component {
     state = {
@@ -56,7 +58,7 @@ class Tracks extends Component {
 
     render() {
         return (
-            <div className="tracksSection">
+            <div className={classes.tracksSection}>
                 {this.props.tracks.map(track => {
                     return (
                         <Track track={track} clickHandler={this.playAudio(track.preview_url)} iconHandler={this.trackIcon(track)} key={track.id}></Track>
@@ -73,10 +75,10 @@ const Track = (props) => {
     const handler = props.clickHandler;
     const iconHandler = props.iconHandler;
     return (
-        <div key={track.id} onClick={handler} className='track'>
-            <img src={track.album.images[0] && track.album.images[0].url} alt="track" className="trackImage" />
-            <p className="track-icon">{iconHandler}</p>
-            <p className="track-text">{track.name}</p>
+        <div key={track.id} onClick={handler} className={classes.track}>
+            <img src={track.album.images[0] && track.album.images[0].url} alt="track" className={classes.trackImage} />
+            <p className={classes.track_icon}>{iconHandler}</p>
+            <p className={classes.track_text}>{track.name}</p>
         </div>
     )
 }

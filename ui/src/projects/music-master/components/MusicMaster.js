@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './components.css'
+import classes from './components.module.css'
 
 import Artist from './Artist';
 import Tracks from './Tracks';
@@ -40,7 +40,7 @@ class MusicMaster extends Component {
 
     render() {
         return (
-            <div className="musicMaster">
+            <div className={classes.musicMaster}>
                 <h2>Music Master</h2>
                 <Search searchArtist={this.searchArtist}/>
                 <hr/>
