@@ -18,7 +18,7 @@ ReactDOM.render(
       <Route path='/flashcards' render={()=> <Header><FlashcardsApp/></Header>}></Route>
       <Route path='/helloworld' render={() => <Header><Hello/></Header>}></Route>
       <Route path='/music-master' render= {() => <Header><MusicMaster/></Header>}></Route>
-      <Route path='/burger-builder' render= {() => <Header><BurgerBuilder /></Header>}></Route>
+      <Route path='/burger-builder' render= {() => <BurgerBuilder />}></Route>
     </Switch>
   </Router>
   ,
