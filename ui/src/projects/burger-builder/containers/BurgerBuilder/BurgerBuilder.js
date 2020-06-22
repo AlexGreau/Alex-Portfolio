@@ -59,14 +59,18 @@ class BurgerBuilder extends Component {
             igKey => {
                 return ingredients[igKey];
             }
-        ).reduce((acc, curr) => acc+curr, 0)
+        ).reduce((acc, curr) => acc + curr, 0)
 
         const purchasable = sum > 0;
-        this.setState({purchasable : purchasable})
+        this.setState({ purchasable: purchasable })
     }
 
     purchaseHandler = () => {
-        this.setState({purchasing: true})
+        this.setState({ purchasing: true })
+    }
+
+    closeModal = () => {
+        this.setState({purchasing: false});
     }
 
     render() {
@@ -79,8 +83,8 @@ class BurgerBuilder extends Component {
         }
         return (
             <Aux>
-                <Modal show={this.state.purchasing}>
-                    <OrderSummary ingredients={this.state.ingredients}/>
+                <Modal show={this.state.purchasing} modalClosed={this.closeModal}>
+                    <OrderSummary ingredients={this.state.ingredients} />
                 </Modal>
                 <Burger ingredients={this.state.ingredients} />
                 <BuildControls addHandler={this.addIngredientHandler}
