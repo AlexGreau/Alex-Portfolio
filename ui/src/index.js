@@ -8,6 +8,7 @@ import FlashcardsApp from './projects/flashcards-app/flashcardsApp';
 import Hello from './component/Hello';
 import MusicMaster from './projects/music-master/index'
 import Header from './component/Header';
+import BurgerBuilder from './projects/burger-builder/index';
 
 
 ReactDOM.render(
@@ -16,7 +17,8 @@ ReactDOM.render(
       <Route exact path='/' render={()=> <Header><App/></Header>}></Route>
       <Route path='/flashcards' render={()=> <Header><FlashcardsApp/></Header>}></Route>
       <Route path='/helloworld' render={() => <Header><Hello/></Header>}></Route>
-      <Route path='/music-master' render= {() => <Header><MusicMaster/></Header>}></Route><Route/>
+      <Route path='/music-master' render= {() => <Header><MusicMaster/></Header>}></Route>
+      <Route path='/burger-builder' render= {() => <BurgerBuilder />}></Route>
     </Switch>
   </Router>
   ,

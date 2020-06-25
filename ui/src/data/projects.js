@@ -1,6 +1,7 @@
 import flashcards_icon from '../assets/cards.jpg';
 import hello from '../assets/helloworld.png';
-import headset from '../assets/headset.jpg'
+import headset from '../assets/headset.jpg';
+import burger from '../assets/burger.png';
 
 const TEST = {
     id : 1,
@@ -26,8 +27,17 @@ const FLASHCARDS = {
     link: '/flashcards'
 }
 
+const BURGER = {
+    id: 4,
+    title: 'BurgerBuilder',
+    desc: "Let's build that meal !",
+    img: burger,
+    link: '/burger-builder'
+}
+
 const PROJECTS = [
     TEST,
+    BURGER,
     MUSICMASTER,
     FLASHCARDS,
 ]
