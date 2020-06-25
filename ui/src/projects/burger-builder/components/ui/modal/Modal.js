@@ -7,7 +7,7 @@ import Backdrop from '../backdrop/Backdrop';
 const Modal = (props) => {
     return (
         <Aux>
-            <Backdrop show={props.show} clicked={props.modalClosed}/>
+            <Backdrop show={props.show} clicked={props.modalClosed} />
             <div className={classes.Modal}
                 style={{
                     transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
@@ -16,7 +16,11 @@ const Modal = (props) => {
                 {props.children}
             </div>
         </Aux>
-
     )
 }
-export default Modal;
+export default React.memo(
+    Modal,
+    // if true props are the same and update will be skipped
+    (prevProps, nextProps) =>
+        nextProps.show === prevProps.show &&
+        nextProps.children === prevProps.children);
