@@ -1,6 +1,8 @@
 .App {
-  display: grid;
+  display: flex;
   text-align: center;
+  align-items: center;
+  width: 100vw;
 }
 
 .App-header {

@@ -6,6 +6,8 @@ const app = express();
 const buildPath = path.join(__dirname, '../../ui/' , 'build');
 const port = process.env.PORT || 3000;
 
+const jokesController = require ('../controllers/jokesController') 
+
 app.use(express.static(buildPath));
 
 // CORS Definition
@@ -42,6 +44,15 @@ app.get('/home/name',(req, res)=> {
   res.json({name : "Alexandre Greau"});
 });
 
+// random joke
+app.get('/randomJoke', (req, res) => {
+  res.json(jokesController.getRandomJoke())
+})
+
+// set of 10 random jokes
+app.get('/tenRandomJoke', (req, res) => {
+  res.json(jokesController.randomTen())
+})
 
 // Default route
 app.get('/home',(req, res) => { // site content

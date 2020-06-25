@@ -1,6 +1,19 @@
+.box {
+    display: flex;
+    flex-flow: column;
+}
+
+#header{
+    flex: 0 1 auto;
+}
+
+#body {
+    flex: 1 1 auto;
+}
+
 .projectItem {
-    width: 18rem;
-    max-width: 200px;
+    width: 25rem;
+    max-width: 300px;
 }
 
 .projectImage {
@@ -15,4 +28,49 @@
 
 .card-body {
     text-align: left;
+}
+
+#helloDiv {
+    flex: 1 1 auto;
+    background: url('../assets/hello.jpg') no-repeat center fixed;
+    background-size: cover;
+}
+
+#helloImg {
+    display: hidden;
+    max-width: 100vw;
+    height: auto;
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+}
+
+.title-fadeOut {
+    opacity: 0;
+    animation-name: fade-out;
+    animation-duration: 2s;
+}
+
+.title-fadeIn {
+    opacity: 100;
+    animation-name: fade-in;
+    animation-duration: 2s;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 100
+    }
+    to {
+        opacity: 0
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 100
+    }
 }
