@@ -14,11 +14,11 @@ import BurgerBuilder from './projects/burger-builder/index';
 ReactDOM.render(
   <Router history={createBrowserHistory()}>
     <Switch>
-      <Route exact path='/' render={()=> <Header><App/></Header>}></Route>
-      <Route path='/flashcards' render={()=> <Header><FlashcardsApp/></Header>}></Route>
-      <Route path='/helloworld' render={() => <Header><Hello/></Header>}></Route>
-      <Route path='/music-master' render= {() => <Header><MusicMaster/></Header>}></Route>
-      <Route path='/burger-builder' render= {() => <BurgerBuilder />}></Route>
+      <Route exact path='/' render={()=> <Header><App/></Header>}/>
+      <Route path='/flashcards' render={()=> <Header><FlashcardsApp/></Header>}/>
+      <Route path='/helloworld' render={() => <Header><Hello/></Header>}/>
+      <Route path='/music-master' render= {() => <Header><MusicMaster/></Header>}/>
+      <Route path='/burger-builder' render= {() => <BurgerBuilder />}/>
     </Switch>
   </Router>
   ,
