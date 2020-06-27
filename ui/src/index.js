@@ -9,6 +9,7 @@ import Hello from './component/Hello';
 import MusicMaster from './projects/music-master/index'
 import Header from './component/Header';
 import BurgerBuilder from './projects/burger-builder/index';
+import HttpLearning from './projects/http-learning/index'
 
 
 ReactDOM.render(
@@ -19,6 +20,7 @@ ReactDOM.render(
       <Route path='/helloworld' render={() => <Header><Hello/></Header>}/>
       <Route path='/music-master' render= {() => <Header><MusicMaster/></Header>}/>
       <Route path='/burger-builder' render= {() => <BurgerBuilder />}/>
+      <Route path='/learning/http' render={() => <HttpLearning/>}/>
     </Switch>
   </Router>
   ,
