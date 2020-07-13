@@ -11,6 +11,8 @@ import OrderSummary from '../../components/burger/orderSummary/OrderSummary'
 import INGREDIENT_PRICES from '../../data';
 import Spinner from '../../components/ui/spinner/Spinner';
 
+import Checkout from '../checkout/Checkout'
+
 class BurgerBuilder extends Component {
 
     state = {
@@ -19,15 +21,17 @@ class BurgerBuilder extends Component {
         purchasable: false,
         purchasing: false,
         loading: false,
-        error: false
+        error: false,
+        URL : '/',
     }
 
     componentDidMount() {
+        this.setState({URL: this.props.match.url})
         axios.get('https://burgerbuilder-826b6.firebaseio.com/ingredients.json')
             .then(res => {
                 this.setState({ ingredients: res.data })
             })
-            .catch(error => {this.setState({error: true})})
+            .catch(error => { this.setState({ error: true }) })
     }
 
     addIngredientHandler = (type) => {
@@ -82,26 +86,18 @@ class BurgerBuilder extends Component {
     }
 
     continueOrder = () => {
-        this.setState({ loading: true });
-        const order = {
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
-            customer: {
-                name: 'dummy',
-                address: {
-                    street: 'testStreet',
-                    zipCode: '123456',
-                    country: 'utopia'
-                },
-                email: "test@test.com"
-            },
-            deliveryMehtod: 'fastest'
+        const queryParams = [];
+        for (let ing in this.state.ingredients) {
+            queryParams.push(encodeURIComponent(ing) + '=' + encodeURIComponent(this.state.ingredients[ing]))
         }
-        axios.post('/orders', order)
-            // .json used for firebase to understand that orders is a new node
-            .then(response => this.setState({ loading: false, purchasing: false }))
-            .catch(error => console.log(error));
+        //adding total price 
+        queryParams.push('price=' + this.state.totalPrice);
 
+        const queryString = queryParams.join('&');
+        this.props.history.push({
+            pathname: this.state.URL + '/checkout',
+            search: queryString
+        })
     }
 
     render() {
@@ -114,9 +110,9 @@ class BurgerBuilder extends Component {
         }
 
         let orderSummary = null;
-        let burger = this.state.error ? <Spinner/> : <p> ingredients could ot be fetched</p>
+        let burger = this.state.error ? <Spinner /> : <Spinner/>
 
-        if (this.state.ingredients){
+        if (this.state.ingredients) {
             burger = (
                 <Aux>
                     <Burger ingredients={this.state.ingredients} />
@@ -128,7 +124,12 @@ class BurgerBuilder extends Component {
                         purchaseHandler={this.purchaseHandler} />
                 </Aux>)
 
-            orderSummary =  (<OrderSummary ingredients={this.state.ingredients} totalPrice={this.state.totalPrice} cancelOrder={this.cancelOrder} continueOrder={this.continueOrder} />)
+            orderSummary = (
+                <OrderSummary
+                    ingredients={this.state.ingredients}
+                    totalPrice={this.state.totalPrice}
+                    cancelOrder={this.cancelOrder}
+                    continueOrder={this.continueOrder} />)
         }
 
         if (this.state.loading) {
@@ -142,7 +143,6 @@ class BurgerBuilder extends Component {
                 </Modal>
                 {burger}
             </Aux>
-
         )
     }
 }
