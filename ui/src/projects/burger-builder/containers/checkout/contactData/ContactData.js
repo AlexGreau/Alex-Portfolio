@@ -5,7 +5,6 @@ import Spinner from '../../../components/ui/spinner/Spinner';
 import Input from '../../../components/ui/input/Input'
 
 import axios from '../../../axios-order'
-import { element } from 'prop-types';
 
 class ContactData extends Component {
     state = {
@@ -73,10 +72,15 @@ class ContactData extends Component {
     orderHandler = (event) => {
         event.preventDefault();
         this.setState({ loading: true });
+        const formData = {};
+        for (let formElemID in this.state.orderForm){
+            formData[formElemID] = this.state.orderForm[formElemID].value;
+        }
+
         const order = {
             ingredients: this.props.ingredients,
             price: this.props.price,
-
+            orderData: formData,
         }
         axios.post('/orders.json', order)
             // .json used for firebase to understand that orders is a new node
@@ -87,6 +91,14 @@ class ContactData extends Component {
                 }
             )
             .catch(error => console.log(error));
+    }
+
+    inputChangedHandler = (event, inputID) => {
+        const updatedOrderForm = {...this.state.orderForm};
+        const updatedFormElement = {...updatedOrderForm[inputID]};
+        updatedFormElement.value = event.target.value;
+        updatedOrderForm[inputID] = updatedFormElement;
+        this.setState({orderForm: updatedOrderForm})
     }
 
     render() {
@@ -100,15 +112,16 @@ class ContactData extends Component {
 
 
         let form = (
-            <form>
+            <form onSubmit={this.orderHandler}>
                 {formElementsArray.map((element) => {
                     return <Input
                         key={element.id}
                         elementType={element.config.elementType}
                         elementConfig={element.config.elementConfig}
-                        value={element.config.value} />
+                        value={element.config.value}
+                        changed={(event) => this.inputChangedHandler(event, element.id)} />
                 })}
-                <Button btnType="Success" clicked={this.orderHandler} >SUBMIT ORDER</Button>
+                <Button btnType="Success" >SUBMIT ORDER</Button>
             </form>
         );
 
