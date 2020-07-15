@@ -15,6 +15,7 @@ class ContactData extends Component {
             postalCode: '',
         },
         loading: false,
+        formIsValid: false,
         orderForm: {
             name: {
                 elementType: 'input',
@@ -83,7 +84,7 @@ class ContactData extends Component {
                 valid: false,
                 modified: false
             },
-            deliveryMehtod: {
+            deliveryMethod: {
                 elementType: 'select',
                 elementConfig: {
                     options: [
@@ -91,14 +92,17 @@ class ContactData extends Component {
                         { value: 'cheapest', displayValue: "Cheapest" },
                     ]
                 },
-                value: '',
-                modified: false
+                value: 'fastest',
+                modified: false,
+                valid: true,
+                validation: {}
             }
         }
     };
 
     checkValidity = (value, rules) => {
-        let isValid = true;
+        let isValid = true; 
+
         if (rules.required) {
             isValid = value.trim() !=='' && isValid;
         }
@@ -142,7 +146,17 @@ class ContactData extends Component {
         updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation)
         updatedOrderForm[inputID] = updatedFormElement;
         updatedFormElement.modified = true;
-        this.setState({ orderForm: updatedOrderForm })
+
+        // checking whole form validity
+        let isFormValid = true;
+        for (let inputID in updatedOrderForm) {
+            if (!updatedOrderForm[inputID].valid) {
+                console.log("isfalse : ", inputID, inputID.value)
+                isFormValid = false;
+            } 
+        }
+
+        this.setState({ orderForm: updatedOrderForm, formIsValid: isFormValid })
     }
 
     render() {
@@ -166,7 +180,7 @@ class ContactData extends Component {
                         shouldValidate={element.config.validation && element.config.modified}
                         changed={(event) => this.inputChangedHandler(event, element.id)} />
                 })}
-                <Button btnType="Success" >SUBMIT ORDER</Button>
+                <Button btnType="Success" disabled={!this.state.formIsValid}>SUBMIT ORDER</Button>
             </form>
         );
 
