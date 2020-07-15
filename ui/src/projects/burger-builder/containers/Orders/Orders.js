@@ -42,7 +42,6 @@ const Orders = (props) => {
             return <Order key={order.id} price={order.price} ingredients={order.ingredients}/>
         })
 
-        console.log("orders : ", orders )
     }
 
 

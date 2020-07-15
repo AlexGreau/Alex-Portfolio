@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import classes from './ContactData.module.css';
 import Button from '../../../components/ui/button/Button';
-import Spinner from '../../../components/ui/spinner/Spinner'
+import Spinner from '../../../components/ui/spinner/Spinner';
+import Input from '../../../components/ui/input/Input'
 
 import axios from '../../../axios-order'
+import { element } from 'prop-types';
 
 class ContactData extends Component {
     state = {
@@ -14,6 +16,58 @@ class ContactData extends Component {
             postalCode: '',
         },
         loading: false,
+        orderForm: {
+            name: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Your name'
+                },
+                value: ''
+            },
+            street: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'street name'
+                },
+                value: ''
+            },
+            zipCode: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'zipCode'
+                },
+                value: ''
+            },
+            country: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Country'
+                },
+                value: ''
+            },
+            email: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'email',
+                    placeholder: 'Your eMail'
+                },
+                value: ''
+            },
+            deliveryMehtod: {
+                elementType: 'select',
+                elementConfig: {
+                    options: [
+                        { value: 'fastest', displayValue: "Fastest" },
+                        { value: 'cheapest', displayValue: "Cheapest" },
+                    ]
+                },
+                value: ''
+            }
+        }
     };
 
     orderHandler = (event) => {
@@ -22,16 +76,7 @@ class ContactData extends Component {
         const order = {
             ingredients: this.props.ingredients,
             price: this.props.price,
-            customer: {
-                name: 'dummy',
-                address: {
-                    street: 'testStreet',
-                    zipCode: '123456',
-                    country: 'utopia'
-                },
-                email: "test@test.com"
-            },
-            deliveryMehtod: 'fastest'
+
         }
         axios.post('/orders.json', order)
             // .json used for firebase to understand that orders is a new node
@@ -45,13 +90,24 @@ class ContactData extends Component {
     }
 
     render() {
+        const formElementsArray = [];
+        for (let key in this.state.orderForm) {
+            formElementsArray.push({
+                id: key,
+                config: this.state.orderForm[key],
+            })
+        }
+
 
         let form = (
             <form>
-                <input className={classes.Input} type="text" name="name" placeholder="Your name" />
-                <input className={classes.Input} type="email" name="email" placeholder="Your email" />
-                <input className={classes.Input} type="text" name="street" placeholder="Your address street" />
-                <input className={classes.Input} type="text" name="postal" placeholder="Your  postal code" />
+                {formElementsArray.map((element) => {
+                    return <Input
+                        key={element.id}
+                        elementType={element.config.elementType}
+                        elementConfig={element.config.elementConfig}
+                        value={element.config.value} />
+                })}
                 <Button btnType="Success" clicked={this.orderHandler} >SUBMIT ORDER</Button>
             </form>
         );

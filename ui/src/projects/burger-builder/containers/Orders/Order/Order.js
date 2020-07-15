@@ -6,7 +6,6 @@ const Order = (props) => {
 
     useEffect(() => {
         let ing = [];
-        console.log(props.ingredients)
         for (let ingredient in props.ingredients) {
             ing.push({
                 name: ingredient,
