@@ -26,7 +26,8 @@ class ContactData extends Component {
                 validation: {
                     required: true
                 }, 
-                valid: false
+                valid: false,
+                modified: false
             },
             street: {
                 elementType: 'input',
@@ -38,7 +39,8 @@ class ContactData extends Component {
                 validation: {
                     required: true
                 }, 
-                valid: false
+                valid: false,
+                modified: false
             },
             zipCode: {
                 elementType: 'input',
@@ -52,7 +54,8 @@ class ContactData extends Component {
                     minLength: 5,
                     maxLength: 6
                 }, 
-                valid: false
+                valid: false,
+                modified: false
             },
             country: {
                 elementType: 'input',
@@ -64,7 +67,8 @@ class ContactData extends Component {
                 validation: {
                     required: true
                 }, 
-                valid: false
+                valid: false,
+                modified: false
             },
             email: {
                 elementType: 'input',
@@ -76,7 +80,8 @@ class ContactData extends Component {
                 validation: {
                     required: true
                 }, 
-                valid: false
+                valid: false,
+                modified: false
             },
             deliveryMehtod: {
                 elementType: 'select',
@@ -86,7 +91,8 @@ class ContactData extends Component {
                         { value: 'cheapest', displayValue: "Cheapest" },
                     ]
                 },
-                value: ''
+                value: '',
+                modified: false
             }
         }
     };
@@ -111,10 +117,8 @@ class ContactData extends Component {
         this.setState({ loading: true });
         const formData = {};
         for (let formElemID in this.state.orderForm) {
-            formData[formElemID] = this.state.orderForm[formElemID].value;
-            
+            formData[formElemID] = this.state.orderForm[formElemID].value;   
         }
-
         const order = {
             ingredients: this.props.ingredients,
             price: this.props.price,
@@ -137,6 +141,7 @@ class ContactData extends Component {
         updatedFormElement.value = event.target.value;
         updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation)
         updatedOrderForm[inputID] = updatedFormElement;
+        updatedFormElement.modified = true;
         this.setState({ orderForm: updatedOrderForm })
     }
 
@@ -149,7 +154,6 @@ class ContactData extends Component {
             })
         }
 
-
         let form = (
             <form onSubmit={this.orderHandler}>
                 {formElementsArray.map((element) => {
@@ -158,6 +162,8 @@ class ContactData extends Component {
                         elementType={element.config.elementType}
                         elementConfig={element.config.elementConfig}
                         value={element.config.value}
+                        isValid={element.config.valid}
+                        shouldValidate={element.config.validation && element.config.modified}
                         changed={(event) => this.inputChangedHandler(event, element.id)} />
                 })}
                 <Button btnType="Success" >SUBMIT ORDER</Button>
